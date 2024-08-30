@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RollDiceApp: App {
+    @State var diceVM = DiceVM()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(diceVM)
         }
     }
 }
