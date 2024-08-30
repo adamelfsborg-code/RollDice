@@ -48,13 +48,16 @@ struct PlayTab: View {
     
     func flickDice() {
         var flickCount = 0
-        
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+        withAnimation(.easeIn(duration: 0.5)) {
+            roll = Roll(numberOfDices: dices, numberOfSides: sides)
+        }
+        roll = Roll(numberOfDices: dices, numberOfSides: sides)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             flickCount += 1
-            withAnimation(.easeInOut(duration: 1)) {
+            withAnimation(.easeInOut(duration: 0.5)) {
                 roll = Roll(numberOfDices: dices, numberOfSides: sides)
             }
-            if flickCount >= 5 {
+            if flickCount >= 3 {
                 timer.invalidate()
                 diceVM.add(roll: roll!)
             }
