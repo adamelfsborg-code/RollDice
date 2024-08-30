@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         TabView {
             HistoryTab()
                 .tabItem {
@@ -26,6 +27,7 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
+        .accentColor(Color.black)
     }
 }
 
